@@ -1,16 +1,28 @@
-﻿namespace ProiectPoo;
+﻿using System.Text.Json.Serialization; 
 
+namespace ProiectPoo;
+
+[JsonDerivedType(typeof(Bibliotecar), typeDiscriminator: "Bibliotecar")]
+[JsonDerivedType(typeof(Client), typeDiscriminator: "Client")]
 public abstract class Utilizator
 {
-    private string Nume { get; set; }
-    private string Parola { get; set; }
+    public string Email { get; set; }
+    public string Nume { get; set; }
+    public string Parola { get; set; }
     
-    public Utilizator(string nume, string parola)
+    public Utilizator(string email, string parola)
     {
-        Nume = nume;
+        Email = email;
         Parola = parola;
     }
 
+    public void SetNume(string nume) => Nume = nume;
     public abstract string Rol();
+    
     public override string ToString() => $"{Nume} ({Rol()})";
+
+    public void AfisareMeniuSpecific()
+    {
+        Console.WriteLine($"Bun venit, {Nume}! Esti logat ca {Rol()}.");
+    }
 }
