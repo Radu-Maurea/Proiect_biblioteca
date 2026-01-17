@@ -7,8 +7,155 @@
   },
   {
     "$type": "Client",
+    "CartiImprumutate": [
+      {
+        "CarteaImprumutata": {
+          "Nume": "Crima si Pedeapsa",
+          "Autor": "F.M.D",
+          "An": 1865,
+          "NumarCopii": 11,
+          "DurataMaxima": 10,
+          "Categorie": [
+            "Naratiune"
+          ],
+          "Recenzie": [],
+          "Note": [],
+          "Rezervari": []
+        },
+        "DataImprumut": "2026-01-17T21:59:00.1926497+02:00",
+        "DataScadenta": "2026-01-27T21:59:00.1946357+02:00",
+        "DataReturnare": null
+      },
+      {
+        "CarteaImprumutata": {
+          "Nume": "IT",
+          "Autor": "Stephen King",
+          "An": 1970,
+          "NumarCopii": 2,
+          "DurataMaxima": 20,
+          "Categorie": [
+            "Horror",
+            "Naratiune"
+          ],
+          "Recenzie": [],
+          "Note": [],
+          "Rezervari": []
+        },
+        "DataImprumut": "2026-01-17T21:59:30.5868275+02:00",
+        "DataScadenta": "2026-02-06T21:59:30.5868315+02:00",
+        "DataReturnare": null
+      }
+    ],
     "Email": "oli@gmail.com",
     "Nume": "Bako Olivia",
     "Parola": "1"
+  },
+  {
+    "$type": "Client",
+    "CartiImprumutate": [
+      {
+        "CarteaImprumutata": {
+          "Nume": "Baltagul",
+          "Autor": "Mihail Sadoveanu",
+          "An": 1930,
+          "NumarCopii": 18,
+          "DurataMaxima": 9,
+          "Categorie": [
+            "Poezie"
+          ],
+          "Recenzie": [],
+          "Note": [],
+          "Rezervari": []
+        },
+        "DataImprumut": "2026-01-17T22:22:12.3577924+02:00",
+        "DataScadenta": "2026-01-26T22:22:12.3578403+02:00",
+        "DataReturnare": null
+      },
+      {
+        "CarteaImprumutata": {
+          "Nume": "IT",
+          "Autor": "Stephen King",
+          "An": 1970,
+          "NumarCopii": 0,
+          "DurataMaxima": 20,
+          "Categorie": [
+            "Horror",
+            "Naratiune"
+          ],
+          "Recenzie": [
+            "Utilizatorul Bako Olivia spune:Este infricosatoare",
+            "Utilizatorul Maurea Raul spune:Are un final ciudat"
+          ],
+          "Note": [],
+          "Rezervari": []
+        },
+        "DataImprumut": "2026-01-17T23:10:40.6233135+02:00",
+        "DataScadenta": "2026-02-06T23:10:40.6233694+02:00",
+        "DataReturnare": "2026-01-17T23:12:14.3298584+02:00"
+      }
+    ],
+    "Email": "raul@gmail.com",
+    "Nume": "Maurea Raul",
+    "Parola": "2"
+  },
+  {
+    "$type": "Client",
+    "CartiImprumutate": [
+      {
+        "CarteaImprumutata": {
+          "Nume": "IT",
+          "Autor": "Stephen King",
+          "An": 1970,
+          "NumarCopii": 0,
+          "DurataMaxima": 20,
+          "Categorie": [
+            "Horror",
+            "Naratiune"
+          ],
+          "Recenzie": [
+            "Utilizatorul Bako Olivia spune:Este infricosatoare",
+            "Utilizatorul Maurea Raul spune:Are un final ciudat"
+          ],
+          "Note": [],
+          "Rezervari": []
+        },
+        "DataImprumut": "2026-01-17T23:11:15.2661063+02:00",
+        "DataScadenta": "2026-02-06T23:11:15.266112+02:00",
+        "DataReturnare": null
+      }
+    ],
+    "Email": "paul@gmail.com",
+    "Nume": "Paul Timar",
+    "Parola": "3"
+  },
+  {
+    "$type": "Client",
+    "CartiImprumutate": [
+      {
+        "CarteaImprumutata": {
+          "Nume": "IT",
+          "Autor": "Stephen King",
+          "An": 1970,
+          "NumarCopii": 0,
+          "DurataMaxima": 20,
+          "Categorie": [
+            "Horror",
+            "Naratiune"
+          ],
+          "Recenzie": [
+            "Utilizatorul Bako Olivia spune:Este infricosatoare",
+            "Utilizatorul Maurea Raul spune:Are un final ciudat"
+          ],
+          "Note": [],
+          "Rezervari": []
+        },
+        "DataImprumut": "2026-01-17T23:12:49.8076485+02:00",
+        "DataScadenta": "2026-02-06T23:12:49.8076523+02:00",
+        "DataReturnare": null
+      }
+    ],
+    "Email": "alina@gmail.com",
+    "Nume": "Alina Maurea",
+    "Parola": "4"
   }
 ]

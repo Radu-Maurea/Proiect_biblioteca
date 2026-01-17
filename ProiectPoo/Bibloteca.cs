@@ -14,6 +14,12 @@ public class Bibloteca
     private const string FisierUtilizatori = @"C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\Fisiere\utilizatori.json";
     private const string FisierCarti = @"C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\Fisiere\carti.json";
     private const string FisierCategorii = @"C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\Fisiere\categorii.json";
+    private const string FisierSetari = @"C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\Fisiere\setari.json";
+    
+    public int LimitaCartiPerUtilizator { get; set; } = 3;
+    public int DurataImprumutStandard { get; set; } = 14;
+    public double PenalizarePeZi { get; set; } = 5.0;
+    
 
     public Bibloteca()
     {
@@ -120,6 +126,15 @@ public class Bibloteca
 
             // Salvare Categorii
             File.WriteAllText(FisierCategorii, JsonSerializer.Serialize(Categorii, options));
+            
+            var setari = new 
+            { 
+                Limita = LimitaCartiPerUtilizator, 
+                Durata = DurataImprumutStandard, 
+                Penalizare = PenalizarePeZi 
+            };
+            File.WriteAllText(FisierSetari, JsonSerializer.Serialize(setari, options));
+            
         }
         catch (Exception e)
         {
@@ -151,6 +166,26 @@ public class Bibloteca
             try { Categorii = JsonSerializer.Deserialize<List<Categorie_Literara>>(File.ReadAllText(FisierCategorii), options) ?? new List<Categorie_Literara>(); }
             catch { }
         }
+
+        if (File.Exists(FisierSetari))
+        {
+            try
+            {
+                string json = File.ReadAllText(FisierSetari);
+                using (JsonDocument doc = JsonDocument.Parse(json))
+                {
+                    var root = doc.RootElement;
+                    if(root.TryGetProperty("Limita", out var lim)) LimitaCartiPerUtilizator = lim.GetInt32();
+                    if(root.TryGetProperty("Durata", out var dur)) DurataImprumutStandard = dur.GetInt32();
+                    if(root.TryGetProperty("Penalizare", out var pen)) PenalizarePeZi = pen.GetDouble();
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine($"Eroare la salvare: {e.Message}");
+            }
+            
+        }
     }
     
     public bool ExistaEmail(string email)
@@ -168,4 +203,7 @@ public class Bibloteca
     {
         return User.FirstOrDefault(u => u.Email.ToLower().Trim() == email.ToLower().Trim() && u.Parola == parola);
     }
+
+    
+    
 }

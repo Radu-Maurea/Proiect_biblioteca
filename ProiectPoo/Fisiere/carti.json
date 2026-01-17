@@ -1,26 +1,51 @@
 [
   {
-    "Nume": "q",
-    "Autor": "Paul",
-    "An": 1965,
-    "NumarCopii": 12,
-    "DurataMaxima": 0,
-    "Categorie": null
-  },
-  {
-    "Nume": "Amintiri din Copilarie",
-    "Autor": "Ion Creanga",
-    "An": 1900,
-    "NumarCopii": 21,
-    "DurataMaxima": 0,
-    "Categorie": "Poveste"
-  },
-  {
     "Nume": "IT",
     "Autor": "Stephen King",
-    "An": 1976,
-    "NumarCopii": 4,
+    "An": 1970,
+    "NumarCopii": 0,
+    "DurataMaxima": 20,
+    "Categorie": [
+      "Horror",
+      "Naratiune"
+    ],
+    "Recenzie": [
+      "Utilizatorul Bako Olivia spune:Este infricosatoare",
+      "Utilizatorul Maurea Raul spune:Are un final ciudat"
+    ],
+    "Note": [],
+    "Rezervari": []
+  },
+  {
+    "Nume": "Crima si Pedeapsa",
+    "Autor": "F.M.D",
+    "An": 1865,
+    "NumarCopii": 11,
     "DurataMaxima": 10,
-    "Categorie": "Poveste"
+    "Categorie": [
+      "Naratiune"
+    ],
+    "Recenzie": [
+      "Utilizatorul Bako Olivia spune:Faina",
+      "Utilizatorul Bako Olivia spune:Tare",
+      "Utilizatorul Bako Olivia spune:Foarte tare"
+    ],
+    "Note": [
+      5
+    ],
+    "Rezervari": []
+  },
+  {
+    "Nume": "Baltagul",
+    "Autor": "Mihail Sadoveanu",
+    "An": 1930,
+    "NumarCopii": 18,
+    "DurataMaxima": 9,
+    "Categorie": [
+      "Poezie"
+    ],
+    "Recenzie": [],
+    "Note": [],
+    "Rezervari": []
   }
 ]

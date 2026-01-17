@@ -1,22 +1,70 @@
 [
   {
-    "Nume": "Poveste",
+    "Nume": "Horror",
     "Carti": [
-      {
-        "Nume": "Amintiri din Copilarie",
-        "Autor": "Ion Creanga",
-        "An": 1900,
-        "NumarCopii": 21,
-        "DurataMaxima": 0,
-        "Categorie": "Poveste"
-      },
       {
         "Nume": "IT",
         "Autor": "Stephen King",
-        "An": 1976,
+        "An": 1970,
         "NumarCopii": 4,
+        "DurataMaxima": 20,
+        "Categorie": [
+          "Horror",
+          "Naratiune"
+        ],
+        "Recenzie": [],
+        "Note": [],
+        "Rezervari": []
+      }
+    ]
+  },
+  {
+    "Nume": "Naratiune",
+    "Carti": [
+      {
+        "Nume": "IT",
+        "Autor": "Stephen King",
+        "An": 1970,
+        "NumarCopii": 4,
+        "DurataMaxima": 20,
+        "Categorie": [
+          "Horror",
+          "Naratiune"
+        ],
+        "Recenzie": [],
+        "Note": [],
+        "Rezervari": []
+      },
+      {
+        "Nume": "Crima si Pedeapsa",
+        "Autor": "F.M.D",
+        "An": 1865,
+        "NumarCopii": 11,
         "DurataMaxima": 10,
-        "Categorie": "Poveste"
+        "Categorie": [
+          "Naratiune"
+        ],
+        "Recenzie": [],
+        "Note": [],
+        "Rezervari": []
+      }
+    ]
+  },
+  {
+    "Nume": "Poezie",
+    "Carti": [
+      {
+        "Nume": "Baltagul",
+        "Autor": "Mihail Sadoveanu",
+        "An": 1930,
+        "NumarCopii": 19,
+        "DurataMaxima": 9,
+        "Categorie": [
+          "Poezie"
+        ],
+        "Recenzie": [],
+        "Note": [],
+        "Rezervari": []
       }
     ]
   }
