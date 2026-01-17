@@ -52,11 +52,18 @@ class Program
     {
         while (true)
         {
-            Console.WriteLine("0.Logout");
+            Console.WriteLine("\n=== Meniu Bibliotecar ===");
+            Console.WriteLine("0. Log out");
             Console.WriteLine("1. Adauga Carte");
             Console.WriteLine("2. Afisare Carti");
+            Console.WriteLine("3. Sterge Carte");
+            Console.WriteLine("4.Modifica Carte");
+            Console.WriteLine("5. Creare Categorie Noua");       
+            Console.WriteLine("6. Incadreaza Carte in Categorie"); 
+            Console.WriteLine("7. Vezi Categorii");                
             
-            int opt = int.Parse(Console.ReadLine());
+            if(!int.TryParse(Console.ReadLine(), out int opt)) continue;
+
             switch (opt)
             {
                 case 0:
@@ -67,23 +74,84 @@ class Program
                 case 2:
                     bibliotecar.AfisareCarti(bibloteca);
                     break;
+                case 3:
+                    bibliotecar.StergeCarte(bibloteca);
+                    break;
+                case 4:
+                    bibliotecar.ModificaCarte(bibloteca);
+                    break;
+                case 5:
+                    bibliotecar.CreareCategorieUI(bibloteca);
+                    break;
+                case 6:
+                    bibliotecar.AdaugaCarteInCategorieUI(bibloteca);
+                    break;
+                case 7:
+                    bibloteca.AfisareCategorii();
+                    break;
+                default:
+                    Console.WriteLine("Optiune invalida.");
+                    break;
+            }
+        }
+    }
+
+    static void MeniuClient()
+    {
+        while (true)
+        {
+            Console.WriteLine("\n=== Meniu Client ===");
+            Console.WriteLine("0. Log out");
+            Console.WriteLine("1. Cauta Carte");
+            Console.WriteLine("2. Imprumuta Carte");
+            Console.WriteLine("3. Restituie Cartea");
+            
+            if(!int.TryParse(Console.ReadLine(), out int opt)) continue;
+            switch (opt)
+            {
+                case 0:
+                    return; 
+                case 1:
+                    if (utilizatorCurent is Client clientLogat)
+                    {
+                        clientLogat.CautareCarte(bibloteca);
+                    }
+                    break;
+                case 2:
+                    if (utilizatorCurent is Client c)
+                    {
+                        c.ImprumutaCarte(bibloteca);
+                    }
+                    break;
+                case 3:
+                    if (utilizatorCurent is Client c2)
+                    {
+                        c2.RestituireCarte(bibloteca);
+                    }
+                    break;
                 default:
                     break;
             }
         }
-}
+    }
+
     static void MeniuUtilizator(Utilizator utilizator)
     {
         Console.WriteLine("========Meniu Utilizator========");
         if(utilizator is Bibliotecar)
             MeniuBibilotecar();
+        else if (utilizator is Client)
+            MeniuClient();
             
     }
     
     static void Main(string[] args)
     {
-        bibliotecar.SetNume("Radu");
-        bibloteca.AdaugaUtilizator(bibliotecar);
+        if (!bibloteca.ExistaEmail("radu@gmail.com"))
+        {
+            bibliotecar.SetNume("Radu");
+            bibloteca.AdaugaUtilizator(bibliotecar);
+        }
         bool ok = true;
         do
         {

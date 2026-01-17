@@ -1,0 +1,26 @@
+[
+  {
+    "Nume": "q",
+    "Autor": "Paul",
+    "An": 1965,
+    "NumarCopii": 12,
+    "DurataMaxima": 0,
+    "Categorie": null
+  },
+  {
+    "Nume": "Amintiri din Copilarie",
+    "Autor": "Ion Creanga",
+    "An": 1900,
+    "NumarCopii": 21,
+    "DurataMaxima": 0,
+    "Categorie": "Poveste"
+  },
+  {
+    "Nume": "IT",
+    "Autor": "Stephen King",
+    "An": 1976,
+    "NumarCopii": 4,
+    "DurataMaxima": 10,
+    "Categorie": "Poveste"
+  }
+]

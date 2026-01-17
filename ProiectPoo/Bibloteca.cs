@@ -5,18 +5,22 @@ public class Bibloteca
 {
     private List<Utilizator> User;
     private List<Carte> Carti;
+    private List<Categorie_Literara> Categorii;
     
     public IReadOnlyList<Utilizator> Utilizatori => User.AsReadOnly();
     public IReadOnlyList<Carte> CartiPublic => Carti.AsReadOnly();
-    
+    public IReadOnlyList<Categorie_Literara> CategoriiPublic => Categorii.AsReadOnly();
     
     private const string FisierUtilizatori = @"C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\Fisiere\utilizatori.json";
     private const string FisierCarti = @"C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\Fisiere\carti.json";
+    private const string FisierCategorii = @"C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\Fisiere\categorii.json";
 
     public Bibloteca()
     {
         User = new List<Utilizator>();
         Carti = new List<Carte>();
+        Categorii = new List<Categorie_Literara>();
+        IncarcaDate();
     }
 
     public void AdaugaUtilizator(Utilizator utilizator)
@@ -30,12 +34,76 @@ public class Bibloteca
         Carti.Add(carte);
         SalveazaDate();
     }
+    
+    public void AdaugaCategorie(Categorie_Literara categorie)
+    {
+        Categorii.Add(categorie);
+        SalveazaDate();
+    }
+
+    public void StergeCarte(Carte carte)
+    {
+        Carti.Remove(carte);
+        foreach(var cat in Categorii)
+        {
+            var carteInCat = cat.Carti.FirstOrDefault(c => c.Nume == carte.Nume);
+            if(carteInCat != null) cat.Carti.Remove(carteInCat);
+        }
+        SalveazaDate();
+    }
 
     public void AfisareCarti()
     {
-        IncarcaDate();
+        IncarcaDate(); 
+        Console.WriteLine("\n--- Toate Cartile ---");
         foreach (var carte in Carti)
             Console.WriteLine(carte);
+    }
+
+    public void ModificaCarte(Carte carte)
+    {
+        Console.WriteLine("Doriti sa schimbati titlul ? \n1.Da\n2.Nu\n");
+        int opt = int.Parse(Console.ReadLine());
+        if (opt == 1)
+        {
+            Console.WriteLine("Titlu nou:");
+            string titlu = Console.ReadLine();
+            carte.Nume = titlu;
+        }
+        Console.WriteLine("Doriti sa schimbati autor ? \n1.Da\n2.Nu\n");
+        opt = int.Parse(Console.ReadLine());
+        if (opt == 1)
+        {
+            Console.WriteLine("Autor nou:");
+            string autor = Console.ReadLine();
+            carte.Autor = autor;
+        }
+        Console.WriteLine("Doriti sa schimbati anul publicarii ? \n1.Da\n2.Nu");
+        opt = int.Parse(Console.ReadLine());
+        if (opt == 1)
+        {
+            Console.WriteLine("An nou:");
+            int an =  int.Parse(Console.ReadLine());
+            carte.An = an;
+        }
+        Console.WriteLine("Doriti sa schimbati numarul de exemplare ? \n1.Da\n2.Nu");
+        opt = int.Parse(Console.ReadLine());
+        if (opt == 1)
+        {
+            Console.WriteLine("Numar nou de exemplare:");
+            int exemplare =  int.Parse(Console.ReadLine());
+            carte.NumarCopii = exemplare;
+        }
+        SalveazaDate();
+    }
+    
+    public void AfisareCategorii()
+    {
+        Console.WriteLine("\n--- Categorii Literare ---");
+        foreach (var cat in Categorii)
+        {
+            Console.WriteLine($"Categoria: {cat.Nume} (Contine {cat.Carti.Count} carti)");
+        }
     }
 
     public void SalveazaDate()
@@ -45,12 +113,13 @@ public class Bibloteca
             var options = new JsonSerializerOptions { WriteIndented = true };
 
             // Salvare Utilizatori
-            string jsonUser = JsonSerializer.Serialize(User, options);
-            File.WriteAllText(FisierUtilizatori, jsonUser);
+            File.WriteAllText(FisierUtilizatori, JsonSerializer.Serialize(User, options));
 
             // Salvare Carti
-            string jsonCarti = JsonSerializer.Serialize(Carti, options);
-            File.WriteAllText(FisierCarti, jsonCarti);
+            File.WriteAllText(FisierCarti, JsonSerializer.Serialize(Carti, options));
+
+            // Salvare Categorii
+            File.WriteAllText(FisierCategorii, JsonSerializer.Serialize(Categorii, options));
         }
         catch (Exception e)
         {
@@ -65,35 +134,38 @@ public class Bibloteca
         // Incarcare Utilizatori
         if (File.Exists(FisierUtilizatori))
         {
-            try
-            {
-                string jsonString = File.ReadAllText(FisierUtilizatori);
-                User = JsonSerializer.Deserialize<List<Utilizator>>(jsonString, options) ?? new List<Utilizator>();
-            }
-            catch { Console.WriteLine("Eroare la incarcare utilizatori."); }
+            try { User = JsonSerializer.Deserialize<List<Utilizator>>(File.ReadAllText(FisierUtilizatori), options) ?? new List<Utilizator>(); }
+            catch { }
         }
 
         // Incarcare Carti
         if (File.Exists(FisierCarti))
         {
-            try
-            {
-                string jsonString = File.ReadAllText(FisierCarti);
-                Carti = JsonSerializer.Deserialize<List<Carte>>(jsonString, options) ?? new List<Carte>();
-            }
-            catch { Console.WriteLine("Eroare la incarcare carti."); }
+            try { Carti = JsonSerializer.Deserialize<List<Carte>>(File.ReadAllText(FisierCarti), options) ?? new List<Carte>(); }
+            catch { }
+        }
+
+        //Incarcare Categorii
+        if (File.Exists(FisierCategorii))
+        {
+            try { Categorii = JsonSerializer.Deserialize<List<Categorie_Literara>>(File.ReadAllText(FisierCategorii), options) ?? new List<Categorie_Literara>(); }
+            catch { }
         }
     }
     
     public bool ExistaEmail(string email)
     {
-        email = email.ToLower().Trim();
-        return User.Any(u => u.Email.ToLower().Trim() == email);
+        return User.Any(u => u.Email.ToLower().Trim() == email.ToLower().Trim());
     }
 
+    public bool EDisponibilaCartea(Carte carte)
+    {
+        if (carte.NumarCopii > 0) return true;
+        return false;
+    }
+    
     public Utilizator? Autentificare(string email, string parola)
     {
-        email = email.ToLower().Trim();
-        return User.FirstOrDefault(u => u.Email.ToLower().Trim() == email && u.Parola == parola);
+        return User.FirstOrDefault(u => u.Email.ToLower().Trim() == email.ToLower().Trim() && u.Parola == parola);
     }
 }

@@ -1,0 +1,14 @@
+[
+  {
+    "$type": "Bibliotecar",
+    "Email": "radu@gmail.com",
+    "Nume": "Radu",
+    "Parola": "123456"
+  },
+  {
+    "$type": "Client",
+    "Email": "oli@gmail.com",
+    "Nume": "Bako Olivia",
+    "Parola": "1"
+  }
+]

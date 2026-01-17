@@ -1,0 +1,23 @@
+[
+  {
+    "Nume": "Poveste",
+    "Carti": [
+      {
+        "Nume": "Amintiri din Copilarie",
+        "Autor": "Ion Creanga",
+        "An": 1900,
+        "NumarCopii": 21,
+        "DurataMaxima": 0,
+        "Categorie": "Poveste"
+      },
+      {
+        "Nume": "IT",
+        "Autor": "Stephen King",
+        "An": 1976,
+        "NumarCopii": 4,
+        "DurataMaxima": 10,
+        "Categorie": "Poveste"
+      }
+    ]
+  }
+]

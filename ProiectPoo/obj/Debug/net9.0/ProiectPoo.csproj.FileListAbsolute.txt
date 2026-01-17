@@ -1,0 +1,15 @@
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\bin\Debug\net9.0\ProiectPoo.exe
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\bin\Debug\net9.0\ProiectPoo.deps.json
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\bin\Debug\net9.0\ProiectPoo.runtimeconfig.json
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\bin\Debug\net9.0\ProiectPoo.dll
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\bin\Debug\net9.0\ProiectPoo.pdb
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\obj\Debug\net9.0\ProiectPoo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\obj\Debug\net9.0\ProiectPoo.AssemblyInfoInputs.cache
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\obj\Debug\net9.0\ProiectPoo.AssemblyInfo.cs
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\obj\Debug\net9.0\ProiectPoo.csproj.CoreCompileInputs.cache
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\obj\Debug\net9.0\ProiectPoo.sourcelink.json
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\obj\Debug\net9.0\ProiectPoo.dll
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\obj\Debug\net9.0\refint\ProiectPoo.dll
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\obj\Debug\net9.0\ProiectPoo.pdb
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\obj\Debug\net9.0\ProiectPoo.genruntimeconfig.cache
+C:\Users\radum\Desktop\New folder (2)\ProiectPoo\ProiectPoo\obj\Debug\net9.0\ref\ProiectPoo.dll
